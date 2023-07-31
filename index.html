@@ -5,8 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weather</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
+    <div class="container">
+      <div class="main">
+        <div class="aside">
+          <div class="input__box">
+            <div class="box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                class="input__box-el"
+                type="text"
+                placeholder="Search for places ..."
+              />
+            </div>
+          </div>
+
+          <article>
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="location__city location__name">Toshkent,</span>
+            <span class="location__country location__name">uzbekistan,</span>
+          </article>
+
+          <article class="info_weather">
+            <img src="" alt="no img" />
+            <h2>38 &#8451;</h2>
+          </article>
+
+          <article class="updated__weather">
+            <span class="updated__title">Updated : </span>
+            <span class="updated__date">Sunday , </span>
+            <span class="updated__time">22:30 </span>
+          </article>
+
+          <article class="info_other">
+            <p>clear</p>
+            <span class="info_other-cloud">Cloud - </span>
+            <span> 0% </span>
+          </article>
+        </div>
+        <section class="main__content">
+          <div class="week__data">
+            <h2>Week</h2>
+
+            <ul class="week__list">
+              <li class="item__card">
+                <p class="card__info">Sun</p>
+                <img src="" alt="an img" />
+                <p class="card__temperature">34 &#8451;</p>
+              </li>
+              <li class="item__card">
+                <p class="card__info">Sun</p>
+                <img src="" alt="an img" />
+                <p class="card__temperature">34 &#8451;</p>
+              </li>
+              <li class="item__card">
+                <p class="card__info">Sun</p>
+                <img src="" alt="an img" />
+                <p class="card__temperature">34&#8451;</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="today__data">
+            <h1 class="today__title">Today's Highlights</h1>
+
+            <ul class="today__list">
+              <li>
+                <p class="item__title">Wind Status</p>
+                <article class="today__article">
+                  <img src="" alt="an img" />
+                  <h1 class="wind_status">11.2</h1>
+                  <p>km/h</p>
+                </article>
+                <div class="content">
+                  <p>NE</p>
+                  <div class="circle"></div>
+                </div>
+              </li>
+
+              <li>
+                <p class="item__title">UV index</p>
+                <article class="today__article">
+                  <img src="" alt="an img" />
+                  <h1 class="wind_status">10</h1>
+                </article>
+                <div class="content">
+                  <p>Very high</p>
+                  <div class="circle"></div>
+                </div>
+              </li>
+
+              <li>
+                <p class="item__title">Humidity</p>
+                <article class="today__article">
+                  <img src="" alt="an img" />
+                  <h1 class="wind_status">11</h1>
+                  <p>%</p>
+                </article>
+                <div class="content">
+                  <p>Normal</p>
+                  <div class="circle"></div>
+                </div>
+              </li>
+
+              <li>
+                <p class="item__title">Visibility</p>
+                <article class="today__article">
+                  <img src="" alt="an img" />
+                  <h1 class="wind_status">10</h1>
+                  <p>km</p>
+                </article>
+                <div class="content">
+                  <p>Average</p>
+                  <div class="circle"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
