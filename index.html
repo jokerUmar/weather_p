@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-    <div class="container">
+    <section class="container">
       <div class="main">
         <div class="aside">
           <div class="input__box">
@@ -25,29 +25,37 @@
             </div>
           </div>
 
-          <article>
+          <article style="width: 220px">
             <i class="fa-solid fa-location-dot"></i>
             <span class="location__city location__name">Toshkent,</span>
             <span class="location__country location__name">uzbekistan,</span>
           </article>
 
           <article class="info_weather">
-            <img src="" alt="no img" />
+            <img
+              class="info_weather_img"
+              width="64"
+              height="64"
+              src=""
+              alt="no img"
+            />
             <h2>38 &#8451;</h2>
           </article>
 
           <article class="updated__weather">
             <span class="updated__title">Updated : </span>
-            <span class="updated__date">Sunday , </span>
+            <span class="updated__date">nomalum , </span>
             <span class="updated__time">22:30 </span>
           </article>
 
           <article class="info_other">
-            <p>clear</p>
+            <p class="info_air">clear</p>
             <span class="info_other-cloud">Cloud - </span>
-            <span> 0% </span>
+            <span class="info_other-cloud_the"></span>
+            <span> % </span>
           </article>
         </div>
+
         <section class="main__content">
           <div class="week__data">
             <h2>Week</h2>
@@ -129,7 +137,7 @@
           </div>
         </section>
       </div>
-    </div>
+    </section>
     <script src="./app.js"></script>
   </body>
 </html>

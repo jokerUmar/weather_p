@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgba(248, 249, 250, 1) !important;
+}
+
 .container {
   max-width: 1280px;
   width: 100%;
@@ -13,18 +17,7 @@
 .main {
   display: flex;
   align-items: center;
-}
-
-.aside {
-  max-width: 400px;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow-y: hidden;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  justify-content: center;
 }
 
 .aside,
@@ -34,9 +27,24 @@
   flex-direction: column;
 }
 
+.aside {
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: hidden;
+  align-items: center;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  padding-left: 0;
+  background-color: white;
+  margin-right: auto;
+}
+
 .main__content {
   width: 70%;
-  background-color: rgba(248, 249, 250, 1) !important;
   position: absolute;
   right: 0;
   top: 0;
@@ -62,12 +70,16 @@
 
 .box {
   text-align: start;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .box::after {
   content: "";
   height: 1.2px;
-  width: 280px !important;
+  max-width: 280px;
+  width: 100%;
   background-color: #d3d3d3;
   position: absolute;
   bottom: -13px;
@@ -102,7 +114,7 @@
   background-color: #d3d3d3;
   position: absolute;
   left: 65px;
-  top: 315px;
+  top: 335px;
 }
 
 .info_other {
@@ -120,6 +132,7 @@
 
 .week__data h2 {
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .week__list {
@@ -209,4 +222,184 @@
 .wind_status {
   font-size: 28px;
   font-size: calc(1.375rem + 1.5vw);
+}
+
+@media screen and (max-width: 1175px) {
+  .aside {
+    max-width: 350px;
+    width: 100%;
+  }
+  .main__content {
+    width: 65%;
+  }
+
+  .updated__weather::after {
+    left: 30px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .aside {
+    max-width: 300px;
+    width: 100%;
+  }
+  .main__content {
+    width: 60%;
+  }
+  .updated__weather::after {
+    left: 10px;
+  }
+
+  .box::after {
+    bottom: -13px;
+    left: 10px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .aside {
+    max-width: 300px;
+    width: 100%;
+  }
+  .main__content {
+    width: 50%;
+  }
+
+  .week__list {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .item__card {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .today__list li {
+    width: 220px;
+  }
+
+  .item__title {
+    width: 220px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .aside {
+    max-width: 250px;
+    width: 100%;
+  }
+  .main__content {
+    width: 50%;
+  }
+
+  .week__list {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .item__card {
+    margin-bottom: 20px;
+  }
+
+  .box::after {
+    left: 0px;
+  }
+
+  .input__box-el {
+    width: 70%;
+  }
+
+  .main__content {
+    right: 0%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .input__box-el::placeholder {
+    font-size: 14px;
+  }
+
+  .aside {
+    max-width: 200px !important;
+    width: 100% !important;
+  }
+  .location__name {
+    font-size: 16px;
+  }
+
+  .info_weather h2 {
+    font-size: 22px;
+  }
+
+  .info_other {
+    margin-top: 50px;
+  }
+
+  .main__content {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aside {
+    max-width: 480px !important;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    position: relative;
+  }
+
+  .updated__weather::after {
+    left: 20%;
+  }
+
+  .info_other {
+    text-align: center;
+  }
+
+  .main__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 482px;
+    width: 100%;
+    left: 0;
+    top: 380px;
+  }
+  .today__list {
+    justify-content: center;
+  }
+
+  .today__list li {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .today__title {
+    text-align: center;
+    margin: 0;
+    margin-top: 30px;
+  }
+
+  .week__data {
+    max-width: 430px;
+    width: 100%;
+  }
+
+  .week__list {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .updated__weather::after {
+    display: none;
+  }
+
+  .box::after {
+    left: 3%;
+    max-width: 480px;
+    width: 100%;
+  }
 }
