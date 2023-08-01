@@ -25,10 +25,13 @@
             </div>
           </div>
 
-          <article style="width: 220px">
+          <article
+            class="parent__location"
+            style="width: 220px; text-align: center"
+          >
             <i class="fa-solid fa-location-dot"></i>
-            <span class="location__city location__name">Toshkent,</span>
-            <span class="location__country location__name">uzbekistan,</span>
+            <span class="location__city location__name">no data,</span>
+            <span class="location__country location__name">no data,</span>
           </article>
 
           <article class="info_weather">
@@ -39,19 +42,22 @@
               src=""
               alt="no img"
             />
-            <h2>38 &#8451;</h2>
+            <article class="today_temperature">
+              <span class="today_temperature_celcius"> no data </span>
+              <span>&#8451;</span>
+            </article>
           </article>
 
           <article class="updated__weather">
             <span class="updated__title">Updated : </span>
-            <span class="updated__date">nomalum , </span>
-            <span class="updated__time">22:30 </span>
+            <span class="updated__date">undefined , </span>
+            <span class="updated__time"> no data </span>
           </article>
 
           <article class="info_other">
-            <p class="info_air">clear</p>
+            <p class="info_air">cleno data</p>
             <span class="info_other-cloud">Cloud - </span>
-            <span class="info_other-cloud_the"></span>
+            <span class="info_other-cloud_the">no data</span>
             <span> % </span>
           </article>
         </div>
@@ -63,18 +69,27 @@
             <ul class="week__list">
               <li class="item__card">
                 <p class="card__info">Sun</p>
-                <img src="" alt="an img" />
-                <p class="card__temperature">34 &#8451;</p>
+                <img class="card__info_img" src="" alt="an img" />
+                <article>
+                  <span class="card__temperature">34</span>
+                  <span>&#8451;</span>
+                </article>
               </li>
               <li class="item__card">
                 <p class="card__info">Sun</p>
-                <img src="" alt="an img" />
-                <p class="card__temperature">34 &#8451;</p>
+                <img class="card__info_img" src="" alt="an img" />
+                <article>
+                  <span class="card__temperature">34</span>
+                  <span>&#8451;</span>
+                </article>
               </li>
               <li class="item__card">
                 <p class="card__info">Sun</p>
-                <img src="" alt="an img" />
-                <p class="card__temperature">34&#8451;</p>
+                <img class="card__info_img" src="" alt="an img" />
+                <article>
+                  <span class="card__temperature">34</span>
+                  <span>&#8451;</span>
+                </article>
               </li>
             </ul>
           </div>
@@ -86,7 +101,7 @@
               <li>
                 <p class="item__title">Wind Status</p>
                 <article class="today__article">
-                  <img src="" alt="an img" />
+                  <img src="./img/windstatus.png" width="35" alt="an img" />
                   <h1 class="wind_status">11.2</h1>
                   <p>km/h</p>
                 </article>
@@ -99,8 +114,8 @@
               <li>
                 <p class="item__title">UV index</p>
                 <article class="today__article">
-                  <img src="" alt="an img" />
-                  <h1 class="wind_status">10</h1>
+                  <img src="./img/index-uv.png" width="35" alt="an img" />
+                  <h1 id="index-uv" class="wind_status">10</h1>
                 </article>
                 <div class="content">
                   <p>Very high</p>
@@ -111,8 +126,8 @@
               <li>
                 <p class="item__title">Humidity</p>
                 <article class="today__article">
-                  <img src="" alt="an img" />
-                  <h1 class="wind_status">11</h1>
+                  <img src="./img/humidity.png" width="35" alt="an img" />
+                  <h1 id="humidity" class="wind_status">11</h1>
                   <p>%</p>
                 </article>
                 <div class="content">
@@ -124,8 +139,8 @@
               <li>
                 <p class="item__title">Visibility</p>
                 <article class="today__article">
-                  <img src="" alt="an img" />
-                  <h1 class="wind_status">10</h1>
+                  <img src="./img/visibility.png" width="35" alt="an img" />
+                  <h1 id="visibility" class="wind_status">10</h1>
                   <p>km</p>
                 </article>
                 <div class="content">

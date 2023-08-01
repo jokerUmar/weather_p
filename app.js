@@ -1,7 +1,6 @@
 let input_box_el = document.querySelector(".input__box-el");
 let icon_search = document.querySelector(".fa-magnifying-glass");
 
-// const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${place_name}&days=3`;
 const options = {
   method: "GET",
   headers: {
@@ -17,7 +16,7 @@ function apiData(place_name) {
   )
     .then((res) => res.json())
     .then((data) => {
-      asideFunc(data);
+      renderHtml(data);
     })
     .catch((err) => {
       console.log(err);
@@ -26,61 +25,98 @@ function apiData(place_name) {
 
 apiData("uzbekistan");
 
-function asideFunc(data) {
+function renderHtml(data) {
   console.log(data);
 
+  let info_air = document.querySelector(".info_air");
+  let info_cloud = document.querySelector(".info_other-cloud_the");
+  let today_temperature_celcius = document.querySelector(
+    ".today_temperature_celcius"
+  );
   let asideImg = document.querySelector(".info_weather_img");
-  asideImg.setAttribute("src", data.current.condition.icon);
-
   let aside_location__city = document.querySelector(".location__city");
   let aside_location__country = document.querySelector(".location__country");
-
-  aside_location__city.textContent = data.location.name;
-  aside_location__country.textContent = data.location.country;
-
   let updated__date = document.querySelector(".updated__date");
   let updated__time = document.querySelector(".updated__time");
-  const d = new Date(data.current.last_updated);
+  let item_card = document.querySelectorAll(".item__card");
+  let wind_status = document.querySelector(".wind_status");
+  let city_img = document.querySelector(".city_img");
+  let index_uv = document.querySelector("#index-uv");
+  let humidity = document.querySelector("#humidity");
+  let visibility = document.querySelector("#visibility");
+
+  // textcontent
+
+  asideImg.setAttribute("src", data.current.condition.icon);
+  aside_location__city.textContent = data.location.name;
+  aside_location__country.textContent = data.location.country;
+  today_temperature_celcius.textContent = data.current.temp_c;
+
+  const d = new Date(data.current.last_updated).getDay();
 
   let time =
     data.current.last_updated.split(" ")[
       data.current.last_updated.split(" ").length - 1
     ];
 
+  // textContent
+
   updated__time.textContent = time;
-
-  switch (d.getDay()) {
-    case 1:
-      updated__date.textContent = "Monday";
-      break;
-    case 2:
-      updated__date.textContent = "Tuesday";
-      break;
-    case 3:
-      updated__date.textContent = "Wednesday";
-      break;
-    case 4:
-      updated__date.textContent = "Thursday";
-      break;
-    case 5:
-      updated__date.textContent = "Friday";
-      break;
-    case 6:
-      updated__date.textContent = "Saturday";
-      break;
-    case 7:
-      updated__date.textContent = "Sunday";
-      break;
-
-    default:
-      updated__date.textContent = "undefined";
-  }
-
-  let info_air = document.querySelector(".info_air");
-  let info_cloud = document.querySelector(".info_other-cloud_the");
-
+  updated__date.textContent = daysFunc(d);
   info_air.textContent = data.current.condition.text;
   info_cloud.textContent = data.current.cloud;
+  wind_status.textContent = data.current.wind_kph;
+  index_uv.textContent = data.current.uv;
+  humidity.textContent = data.current.humidity;
+  visibility.textContent = data.current.vis_km;
+
+  // FOR
+
+  for (let i = 0; i < item_card.length; i++) {
+    const dataForecast = data.forecast.forecastday[i];
+    let week_day = dataForecast.date;
+
+    let week_day_name = new Date(week_day);
+
+    const parent = item_card[i];
+    let child_card_info = parent.querySelector(".card__info");
+    let child_card_img = parent.querySelector(".card__info_img");
+    let child_card_temperature = parent.querySelector(".card__temperature");
+
+    // textContent
+
+    child_card_info.textContent = daysFunc(week_day_name.getDay());
+    child_card_img.setAttribute("src", dataForecast.day.condition.icon);
+    child_card_temperature.textContent =
+      dataForecast.hour[new Date().getHours()].temp_c;
+
+    setInterval(() => {
+      let t = new Date().getHours();
+      child_card_temperature.textContent = dataForecast.hour[t].temp_c;
+    }, 1000 * 60 * 60);
+  }
+}
+
+function daysFunc(params) {
+  switch (params) {
+    case 1:
+      return "Monday";
+    case 2:
+      return "Tuesday";
+    case 3:
+      return "Wednesday";
+    case 4:
+      return "Thursday";
+    case 5:
+      return "Friday";
+    case 6:
+      return "Saturday";
+    case 7:
+      return "Sunday";
+
+    default:
+      return "undefined";
+  }
 }
 
 input_box_el.addEventListener("change", function (e) {

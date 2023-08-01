@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Rubik";
 }
 
 body {
@@ -22,7 +25,7 @@ body {
 
 .aside,
 .main__content {
-  padding: 50px 20px 0 20px;
+  padding: 50px 20px 20px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -86,6 +89,11 @@ body {
   left: 0px;
 }
 
+.today_temperature {
+  font-size: 28px;
+  font-weight: 600;
+}
+
 .fa-location-dot {
   color: #ffc107;
 }
@@ -107,16 +115,6 @@ body {
   margin-right: 20px;
 }
 
-.updated__weather::after {
-  content: "";
-  height: 2px;
-  width: 280px !important;
-  background-color: #d3d3d3;
-  position: absolute;
-  left: 65px;
-  top: 335px;
-}
-
 .info_other {
   margin-top: 30px;
   font-size: 18px;
@@ -128,6 +126,10 @@ body {
 .info_other p {
   margin-bottom: 10px;
   font-size: 18px;
+}
+
+.city_img {
+  /* width: 100%; */
 }
 
 .week__data h2 {
@@ -147,6 +149,9 @@ body {
   padding: 1rem 1rem;
   border-radius: 10px;
   text-align: center;
+  max-width: 130px;
+  width: 100%;
+  height: 170px;
 }
 
 .card__info {
@@ -232,10 +237,6 @@ body {
   .main__content {
     width: 65%;
   }
-
-  .updated__weather::after {
-    left: 30px;
-  }
 }
 
 @media screen and (max-width: 870px) {
@@ -246,13 +247,18 @@ body {
   .main__content {
     width: 60%;
   }
-  .updated__weather::after {
-    left: 10px;
-  }
 
   .box::after {
     bottom: -13px;
     left: 10px;
+  }
+  .week__list {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+  .item__card {
+    margin-bottom: 20px;
   }
 }
 
@@ -263,15 +269,6 @@ body {
   }
   .main__content {
     width: 50%;
-  }
-
-  .week__list {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .item__card {
-    margin-bottom: 20px;
   }
 }
 
@@ -340,6 +337,13 @@ body {
     max-width: 300px;
     width: 100%;
   }
+
+  .parent__location {
+    display: inline-block;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -351,8 +355,8 @@ body {
     position: relative;
   }
 
-  .updated__weather::after {
-    left: 20%;
+  .parent__location {
+    text-align: center;
   }
 
   .info_other {
@@ -366,7 +370,7 @@ body {
     max-width: 482px;
     width: 100%;
     left: 0;
-    top: 380px;
+    top: 400px;
   }
   .today__list {
     justify-content: center;
@@ -393,13 +397,13 @@ body {
     text-align: center;
   }
 
-  .updated__weather::after {
-    display: none;
-  }
-
   .box::after {
     left: 3%;
     max-width: 480px;
     width: 100%;
+  }
+
+  .location__name {
+    font-size: 20px;
   }
 }
