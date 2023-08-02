@@ -1,5 +1,8 @@
 let input_box_el = document.querySelector(".input__box-el");
 let icon_search = document.querySelector(".fa-magnifying-glass");
+let container = document.querySelector(".container");
+let load_box = document.querySelector(".load_box");
+let loadMainPage = true;
 
 const options = {
   method: "GET",
@@ -16,18 +19,29 @@ function apiData(place_name) {
   )
     .then((res) => res.json())
     .then((data) => {
-      renderHtml(data);
+      loadMainPage = false;
+      if (loadMainPage) {
+        container.style.display = "none";
+        load_box.style.display = "flex";
+      } else {
+        container.style.display = "block";
+        load_box.style.display = "none";
+      }
+      if (loadMainPage == false) {
+        renderHtml(data);
+      }
     })
     .catch((err) => {
       console.log(err);
+      loadMainPage = true;
     });
+
+  console.log(loadMainPage);
 }
 
 apiData("uzbekistan");
 
 function renderHtml(data) {
-  console.log(data);
-
   let info_air = document.querySelector(".info_air");
   let info_cloud = document.querySelector(".info_other-cloud_the");
   let today_temperature_celcius = document.querySelector(
@@ -40,7 +54,6 @@ function renderHtml(data) {
   let updated__time = document.querySelector(".updated__time");
   let item_card = document.querySelectorAll(".item__card");
   let wind_status = document.querySelector(".wind_status");
-  let city_img = document.querySelector(".city_img");
   let index_uv = document.querySelector("#index-uv");
   let humidity = document.querySelector("#humidity");
   let visibility = document.querySelector("#visibility");
